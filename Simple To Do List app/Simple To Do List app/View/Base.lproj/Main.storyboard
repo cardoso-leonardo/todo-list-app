@@ -30,7 +30,13 @@
                             <outlet property="delegate" destination="3mF-P8-yP7" id="4ba-8o-ueq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Simple To Do List" id="iNg-Fq-wlA"/>
+                    <navigationItem key="navigationItem" title="Simple To Do List" id="iNg-Fq-wlA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="t3R-BR-9Ch">
+                            <connections>
+                                <action selector="addBarButtonPressed:" destination="3mF-P8-yP7" id="pJA-0M-99T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoS-at-kOR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
