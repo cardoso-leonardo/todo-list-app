@@ -41,8 +41,18 @@ class ItemViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        items[indexPath.row].done = !items[indexPath.row].done
-        //        saveItems()
+        
+        if let item = items?[indexPath.row] {
+            do {
+                try realm.write {
+                    item.done = !item.done
+                }
+            } catch {
+                print("Error saving done status: \(error)")
+            }
+        }
+        
+        tableView.reloadData()
     }
     
     //MARK: Add New Item
@@ -90,3 +100,4 @@ class ItemViewController: UITableViewController {
     }
     
 }
+
