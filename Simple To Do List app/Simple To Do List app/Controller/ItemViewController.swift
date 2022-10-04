@@ -6,14 +6,15 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class ItemViewController: UITableViewController {
     
-    var items = [Items]()
+    let realm = try! Realm()
+    var items = [Item]()
     var selectedCategory : Category? {
         didSet {
-            fetchContext()
+//            fetchContext()
         }
     }
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -32,7 +33,7 @@ class ItemViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
         let item = items[indexPath.row]
-        cell.textLabel?.text = item.name
+        cell.textLabel?.text = item.title
         if item.done {
             cell.accessoryType = .checkmark
         } else {
@@ -43,7 +44,7 @@ class ItemViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         items[indexPath.row].done = !items[indexPath.row].done
-        saveContext()
+//        saveContext()
     }
     
     //MARK: Add New Item
@@ -55,15 +56,15 @@ class ItemViewController: UITableViewController {
         let alert = UIAlertController(title: "New item", message: "Add a new item", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add", style: .default) { action in
-            let newItem = Items(context: self.context)
-            if genericTextField.text == "" {
-                newItem.name = "New Item"
-            }
-            newItem.name = genericTextField.text
-            newItem.done = false
-            newItem.parentCategory = self.selectedCategory
-            self.items.append(newItem)
-            self.saveContext()
+//            let newItem = Item()
+//            if genericTextField.text == "" {
+//                newItem.name = "New Item"
+//            }
+//            newItem.name = genericTextField.text
+//            newItem.done = false
+//            newItem.parentCategory = self.selectedCategory
+//            self.items.append(newItem)
+//            self.saveContext()
         }
         
         alert.addTextField { textField in
@@ -78,27 +79,29 @@ class ItemViewController: UITableViewController {
     }
     
     //MARK: Context functions
-    func saveContext() {
+    func saveContext(item: Item) {
         do {
-            try context.save()
+            try realm.write {
+                realm.add(item)
+            }
         } catch {
             print("Error saving context \(error.localizedDescription)")
         }
         tableView.reloadData()
     }
     
-    func fetchContext (with request: NSFetchRequest<Items> = Items.fetchRequest()) {
-        
-        let predicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
-        
-        request.predicate = predicate
-        
-        do {
-            try items = context.fetch(request)
-        } catch {
-            print("Error saving context \(error.localizedDescription)")
-        }
-        tableView.reloadData()
-    }
+//    func fetchContext (with request: NSFetchRequest<Items> = Items.fetchRequest()) {
+//
+//        let predicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
+//
+//        request.predicate = predicate
+//
+//        do {
+//            try items = context.fetch(request)
+//        } catch {
+//            print("Error saving context \(error.localizedDescription)")
+//        }
+//        tableView.reloadData()
+//    }
     
 }
