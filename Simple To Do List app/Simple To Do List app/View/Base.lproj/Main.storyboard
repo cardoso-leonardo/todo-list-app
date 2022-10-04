@@ -23,9 +23,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Zgz-fF-aIH" kind="show" id="Bg4-7J-pxn"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -40,6 +37,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Zgz-fF-aIH" kind="show" identifier="goToItems" id="4Se-BT-2A1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HoS-at-kOR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,7 +69,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="kbU-Mp-XyV">
-                        <barButtonItem key="backBarButtonItem" title="List" id="cvo-sp-pAD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="36f-a3-XsY">
+                            <connections>
+                                <action selector="addItemBarButton:" destination="Zgz-fF-aIH" id="wCa-7Z-sTI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Iq-4A-0qh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
