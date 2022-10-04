@@ -72,8 +72,8 @@
 				2740B3D828E76258001DFB14 /* AppDelegate.swift */,
 				2740B3F228E762A3001DFB14 /* Utilities */,
 				2740B3EF28E76298001DFB14 /* Model */,
-				2740B3F128E762A0001DFB14 /* Controller */,
 				2740B3F028E7629D001DFB14 /* View */,
+				2740B3F128E762A0001DFB14 /* Controller */,
 				2740B3E928E76259001DFB14 /* Info.plist */,
 			);
 			path = "Simple To Do List app";

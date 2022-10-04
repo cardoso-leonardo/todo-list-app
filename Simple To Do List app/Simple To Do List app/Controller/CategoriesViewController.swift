@@ -6,17 +6,17 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class CategoriesViewController: UITableViewController {
     
-    var categories = [Category]()
+    var categories: Results<Category>!
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchContext()
+        loadCategories()
     }
     
     
@@ -27,10 +27,9 @@ class CategoriesViewController: UITableViewController {
         let alert = UIAlertController(title: "Categories", message: "Add new category", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Add", style: .default) { action in
-            let newCategory = Category(context: self.context)
-            newCategory.name = genericTextField.text
-            self.categories.append(newCategory)
-            self.saveContext()
+            let newCategory = Category()
+            newCategory.name = genericTextField.text!
+            self.saveCategory(newCategory)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -51,12 +50,12 @@ class CategoriesViewController: UITableViewController {
     //MARK: Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return categories?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-        cell.textLabel?.text = categories[indexPath.row].name
+        cell.textLabel?.text = categories?[indexPath.row].name ?? "No categories added yet"
         return cell
     }
     
@@ -68,7 +67,7 @@ class CategoriesViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ItemViewController
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategory = categories[indexPath.row]
+            destinationVC.selectedCategory = categories?[indexPath.row]
         }
         
        
@@ -76,21 +75,21 @@ class CategoriesViewController: UITableViewController {
     
     
     //MARK: Context functions
-    func saveContext() {
+    func saveCategory(_ category: Category) {
         do {
-            try context.save()
+            try realm.write {
+                realm.add(category)
+            }
         } catch {
             print("Error saving context \(error.localizedDescription)")
         }
         tableView.reloadData()
     }
     
-    func fetchContext () {
-        do {
-            try categories = context.fetch(Category.fetchRequest())
-        } catch {
-            print("Error saving context \(error.localizedDescription)")
-        }
+    func loadCategories () {
+        
+        categories = realm.objects(Category.self)
+        
         tableView.reloadData()
     }
     
