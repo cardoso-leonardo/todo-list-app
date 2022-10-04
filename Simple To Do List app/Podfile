@@ -1,0 +1,11 @@
+platform :ios, '9.0'
+
+target 'Simple To Do List app' do
+
+  use_frameworks!
+
+  # Pods for Simple To Do List app
+
+pod 'RealmSwift'
+
+end
