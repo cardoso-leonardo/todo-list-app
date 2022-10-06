@@ -31,6 +31,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Simple To Do List" id="iNg-Fq-wlA">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="7bO-Dr-VPC"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="t3R-BR-9Ch">
                             <connections>
                                 <action selector="addBarButtonPressed:" destination="3mF-P8-yP7" id="pJA-0M-99T"/>
@@ -45,7 +46,7 @@
             </objects>
             <point key="canvasLocation" x="926.15384615384608" y="-31.279620853080566"/>
         </scene>
-        <!--Item View Controller-->
+        <!--Items-->
         <scene sceneID="ySd-Sy-lZE">
             <objects>
                 <tableViewController id="Zgz-fF-aIH" customClass="ItemViewController" customModule="Simple_To_Do_List_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,7 +69,7 @@
                             <outlet property="delegate" destination="Zgz-fF-aIH" id="VVh-jZ-07z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="kbU-Mp-XyV">
+                    <navigationItem key="navigationItem" title="Items" id="kbU-Mp-XyV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="36f-a3-XsY">
                             <connections>
                                 <action selector="addItemBarButton:" destination="Zgz-fF-aIH" id="wCa-7Z-sTI"/>

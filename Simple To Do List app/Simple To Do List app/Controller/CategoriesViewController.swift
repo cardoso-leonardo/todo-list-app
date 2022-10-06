@@ -74,7 +74,7 @@ class CategoriesViewController: UITableViewController {
     }
     
     
-    //MARK: Context functions
+    //MARK: Realm functions
     func saveCategory(_ category: Category) {
         do {
             try realm.write {
