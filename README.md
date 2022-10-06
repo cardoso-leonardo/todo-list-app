@@ -2,11 +2,13 @@
 ### A simple To-Do list app to practice TableViewControllers and Core Data.
 
 **Technologies used**:
+> iOS 16
+
 > XCode 14
 
 > Swift 5.7
 
-> Core Data
+> RealmSwift pod
 
 > MVC Design Pattern
 
