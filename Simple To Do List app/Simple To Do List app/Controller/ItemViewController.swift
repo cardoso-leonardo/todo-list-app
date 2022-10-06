@@ -37,6 +37,7 @@ class ItemViewController: UITableViewController {
         } else {
             cell.textLabel?.text = "No items added"
         }
+        
         return cell
     }
     
@@ -70,6 +71,7 @@ class ItemViewController: UITableViewController {
                     try self.realm.write {
                         let newItem = Item()
                         newItem.title = genericTextField.text!
+                        newItem.dateCreated = Date()
                         currentCategory.items.append(newItem)
                     }
                 } catch {
