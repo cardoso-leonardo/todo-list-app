@@ -23,6 +23,10 @@ class ItemViewController: SwipeTableViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        title = selectedCategory?.name
+    }
+    
     //MARK: Table View Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

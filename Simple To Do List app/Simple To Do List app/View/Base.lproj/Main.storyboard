@@ -86,8 +86,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9wd-rK-UFQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sXf-IB-0dG">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="sXf-IB-0dG">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" systemColor="systemIndigoColor"/>
                     </navigationBar>
