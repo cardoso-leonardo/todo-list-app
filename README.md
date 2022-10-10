@@ -1,5 +1,5 @@
 # todo-list-app
-### A simple To-Do list app to practice TableViewControllers and Core Data.
+### A simple To-Do list app to practice TableViewControllers, CoreData and RealmSwift.
 
 **Technologies used**:
 > iOS 16
@@ -12,4 +12,4 @@
 
 > MVC Design Pattern
 
-> GitHub (GitFlow pattern)
+> GitFlow pattern
