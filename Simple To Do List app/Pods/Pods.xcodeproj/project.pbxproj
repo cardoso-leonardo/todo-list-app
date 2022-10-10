@@ -492,7 +492,7 @@
 		3F4DE1FA67FB75521A52E966EC6E7EFE /* SwipeCollectionViewCell+Display.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwipeCollectionViewCell+Display.swift"; path = "Source/SwipeCollectionViewCell+Display.swift"; sourceTree = "<group>"; };
 		40538855063E35F33FC07190F52AA934 /* RLMNetworkTransport.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; name = RLMNetworkTransport.mm; path = Realm/RLMNetworkTransport.mm; sourceTree = "<group>"; };
 		41C06964DDE835ED005430C1E7252114 /* NSError+RLMSync.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+RLMSync.h"; path = "include/NSError+RLMSync.h"; sourceTree = "<group>"; };
-		434E8B30AE4DC8DE7F7F7751DDB368F3 /* Pods-Simple To Do List app */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Simple To Do List app"; path = Pods_Simple_To_Do_List_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		434E8B30AE4DC8DE7F7F7751DDB368F3 /* Pods_Simple_To_Do_List_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_To_Do_List_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		437919EE08EC6BFCCBAC3BD346309742 /* RealmSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RealmSwift; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D0B64B37710292FA0AA8FAD42D21AF /* RealmSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RealmSwift.debug.xcconfig; sourceTree = "<group>"; };
 		44496D6CDB8E81D7D0F7D32C05E15730 /* Realm-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Realm-prefix.pch"; sourceTree = "<group>"; };
@@ -1038,7 +1038,7 @@
 		DA69BD1B9D7868300D29582969D34C86 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				434E8B30AE4DC8DE7F7F7751DDB368F3 /* Pods-Simple To Do List app */,
+				434E8B30AE4DC8DE7F7F7751DDB368F3 /* Pods_Simple_To_Do_List_app.framework */,
 				921BE4A82C4A7A5C72A0C6F8B8FEF200 /* Realm */,
 				437919EE08EC6BFCCBAC3BD346309742 /* RealmSwift */,
 				9D443E759FE97A6C0CA5A3B5E4142EBA /* SwipeCellKit.framework */,
@@ -1202,7 +1202,7 @@
 			);
 			name = "Pods-Simple To Do List app";
 			productName = Pods_Simple_To_Do_List_app;
-			productReference = 434E8B30AE4DC8DE7F7F7751DDB368F3 /* Pods-Simple To Do List app */;
+			productReference = 434E8B30AE4DC8DE7F7F7751DDB368F3 /* Pods_Simple_To_Do_List_app.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1DE44C23B82E6671E9E1541D06DE0E87 /* SwipeCellKit */ = {

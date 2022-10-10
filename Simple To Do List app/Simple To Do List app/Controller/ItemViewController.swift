@@ -7,9 +7,8 @@
 
 import UIKit
 import RealmSwift
-import SwipeCellKit
 
-class ItemViewController: UITableViewController {
+class ItemViewController: SwipeTableViewController {
     
     let realm = try! Realm()
     var items: Results<Item>?
@@ -22,7 +21,6 @@ class ItemViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 80
     }
     
     //MARK: Table View Methods
@@ -32,8 +30,7 @@ class ItemViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! SwipeTableViewCell
-        cell.delegate = self
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let item = items?[indexPath.row] {
             cell.textLabel?.text = item.title
             cell.accessoryType = item.done ? .checkmark : .none
@@ -104,32 +101,12 @@ class ItemViewController: UITableViewController {
         tableView.reloadData()
     }
     
-}
-
-extension ItemViewController: SwipeTableViewCellDelegate {
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeCellKit.SwipeActionsOrientation) -> [SwipeCellKit.SwipeAction]? {
-        guard orientation == .right else { return nil }
-
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
-            if let item = self.selectedCategory?.items[indexPath.row] {
-                try! self.realm.write {
-                    self.realm.delete(item)
-                            }
+    override func updateModel(at indexPath: IndexPath) {
+        if let item = self.selectedCategory?.items[indexPath.row] {
+            try! self.realm.write {
+                self.realm.delete(item)
             }
         }
-        // customize the action appearance
-        deleteAction.image = UIImage(named: "delete-Icon")
-        
-        return [deleteAction]
     }
-    
-    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-        var options = SwipeOptions()
-        options.expansionStyle = .destructive
-        return options
-    }
-    
-    
 }
 
