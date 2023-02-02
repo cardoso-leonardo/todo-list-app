@@ -1,9 +1,15 @@
-# A Simple To-Do List Application
-### An app to practice TableViewControllers, CoreData and Cocoapods.
-> Using Realm to persist the data created in the app and SwipeCellKit to implement swipe to delete function on cells.
 
-# Functionality
-![Simulator Screen Recording - iPhone 14 Pro - 2023-02-02 at 20 16 41](https://user-images.githubusercontent.com/30813720/216472715-f8f4abed-fc02-4fda-826e-c4278cf7bbab.gif)
+<h1 align="center">A Simple To-Do List Application</h1>
+
+<h3 align="center"> An app to practice TableViewControllers, CoreData and Cocoapods.</h3>
+
+<p align="center"><i>Using Realm to persist the data created in the app and SwipeCellKit to implement swipe to delete function on cells.</i></p>
+<br>
+<h1 align="center">Functionality</h1>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/30813720/216472715-f8f4abed-fc02-4fda-826e-c4278cf7bbab.gif" alt="animated" />
+</p>
+<br>
 
 # Technologies
 - iOS 16
