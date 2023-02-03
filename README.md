@@ -11,6 +11,9 @@
 </p>
 <br>
 
+# Requirements
+> Run `pod install` inside `Simple To Do List app` fold
+
 # Technologies
 - iOS 16
 - XCode 14
@@ -20,3 +23,6 @@
   - SwipeCellKit
 - MVC Design Pattern
 - GitFlow pattern
+
+
+
